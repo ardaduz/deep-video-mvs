@@ -1,5 +1,5 @@
 # deep-video-mvs
-#### Code for DeepVideoMVS: Multi-View Stereo on Video with Recurrent Spatio-Temporal Fusion
+### Code for DeepVideoMVS: Multi-View Stereo on Video with Recurrent Spatio-Temporal Fusion
 ![](miscellaneous/teaser.png)
 
 ### Introduction
