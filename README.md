@@ -1,5 +1,5 @@
 # deep-video-mvs
-### Code for DeepVideoMVS: Multi-View Stereo on Video with Recurrent Spatio-Temporal Fusion
+### DeepVideoMVS: Multi-View Stereo on Video with Recurrent Spatio-Temporal Fusion
 ![](miscellaneous/teaser.png)
 
 ### Introduction
@@ -19,6 +19,17 @@ more consistent depth predictions for the planar surfaces throughout a sequence 
 as smooth reconstructions of such surfaces. This is demonstrated in the
 [video](miscellaneous/deep-video-mvs-supplementary-video.mp4).
 
+If you find this project useful for your research, please cite:
+```
+@misc{düzçeker2020deepvideomvs,
+      title={DeepVideoMVS: Multi-View Stereo on Video with Recurrent Spatio-Temporal Fusion}, 
+      author={Arda Düzçeker and Silvano Galliani and Christoph Vogel and Pablo Speciale and Mihai Dusmanu and Marc Pollefeys},
+      year={2020},
+      eprint={2012.02177},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
+```
 
 ### Dependencies / Installation
 ```
