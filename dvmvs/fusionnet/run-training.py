@@ -30,7 +30,7 @@ class TrainingHyperparameters:
     loss_type = "L1-inv"
     # loss_type = "L1-rel"
 
-    finetune_epochs = 0
+    finetune_epochs = 1
 
     use_checkpoint = True
 
@@ -128,6 +128,28 @@ def main():
                                  weight_decay=TrainingHyperparameters.weight_decay)
     print_number_of_trainable_parameters(optimizer)
     for epoch in range(TrainingHyperparameters.finetune_epochs):
+        print("\n\nEPOCH:", epoch)
+        train(train_loader=train_loader,
+              val_loader=val_loader,
+              model=model,
+              optimizer=optimizer,
+              summary_writer=summary_writer,
+              epoch=epoch,
+              best_loss=best_loss,
+              run_directory=run_directory,
+              forward_pass_function=forward_pass)
+
+    # TRAIN PYRAMID, ENCODER, LSTM, DECODER
+    parameters = itertools.chain(feature_shrinker.parameters(),
+                                 cost_volume_encoder.parameters(),
+                                 lstm_fusion.parameters(),
+                                 cost_volume_decoder.parameters())
+    optimizer = torch.optim.Adam(parameters,
+                                 lr=TrainingHyperparameters.learning_rate,
+                                 betas=(TrainingHyperparameters.momentum, TrainingHyperparameters.beta),
+                                 weight_decay=TrainingHyperparameters.weight_decay)
+    print_number_of_trainable_parameters(optimizer)
+    for epoch in range(TrainingHyperparameters.finetune_epochs, 2*TrainingHyperparameters.finetune_epochs):
         print("\n\nEPOCH:", epoch)
         train(train_loader=train_loader,
               val_loader=val_loader,
