@@ -118,9 +118,8 @@ def main():
     cudnn.benchmark = True
 
     best_loss = [np.inf, np.inf, np.inf, np.inf]
-    # TRAIN ENCODER, LSTM, DECODER
-    parameters = itertools.chain(cost_volume_encoder.parameters(),
-                                 lstm_fusion.parameters(),
+    # TRAIN LSTM, DECODER
+    parameters = itertools.chain(lstm_fusion.parameters(),
                                  cost_volume_decoder.parameters())
     optimizer = torch.optim.Adam(parameters,
                                  lr=TrainingHyperparameters.learning_rate,
@@ -139,7 +138,7 @@ def main():
               run_directory=run_directory,
               forward_pass_function=forward_pass)
 
-    # TRAIN PYRAMID, ENCODER, LSTM, DECODER
+    # TRAIN MY PARTS
     parameters = itertools.chain(feature_shrinker.parameters(),
                                  cost_volume_encoder.parameters(),
                                  lstm_fusion.parameters(),
