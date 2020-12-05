@@ -46,34 +46,60 @@ pip install -e deep-video-mvs
 ```
 
 ### Data Structure
-The system expects a data structure for a particular scene as provided in the 
-sample-data/hololens-dataset/000. We assume PNG format for all images.
+The scripts for parsing the datasets are provided in the [dataset](https://github.com/ardaduz/deep-video-mvs/tree/master/dataset) folder.
+All of the scripts might not work straight-ahead due to naming and foldering conventions while
+downloading the datasets, however they should help reduce the effort required. Exporting [ScanNet](http://www.scan-net.org/) .sens 
+files, both for training and testing, should work with very minimal effort. The script that is provided here is
+a modified version of the official code and similarly requires python2.
 
-"images" folder contains the input images that will be used by the model 
+During testing, the system expects a data structure for a particular scene as provided in the 
+sample-data/hololens-dataset/000. We assume PNG format for all images.
+* "images" folder contains the input images that will be used by the model 
 and the naming convention is not important. The system considers the sequential order
 alphabetically.
-
-"depth" folder contains the groundtruth depth maps that are used for metric evaluation,
+* "depth" folder contains the groundtruth depth maps that are used for metric evaluation,
 the names must match with the color images. The depth images must be uint16 PNG format, 
 and the depth value in millimeters. 
 For example, if the depth is 1.12 meters for a pixel location,
 it should read 1120 in the groundtruth depth image.
-
-"poses.txt" contains CAMERA-TO-WORLD pose corresponding to each color and depth image. 
+* "poses.txt" contains CAMERA-TO-WORLD pose corresponding to each color and depth image. 
 Each line is one flattened pose in homogeneous coordinates.
+* "K.txt" is the intrinsic matrix for a given sequence after the images are undistorted.
 
-"K.txt" is the intrinsic matrix for a given sequence after the images are undistorted.
+During training, the system expects each scene to be placed in a folder, and color image and depth image for a time step 
+to be packed inside a zipped numpy archive (.npz). See the [code](https://github.com/ardaduz/deep-video-mvs/blob/master/dataset/scannet-export/scannet-export.py#L151).
+We use frame_skip=4 while exporting the ScanNet training and validation scenes due to the large amount of data.
+The training/validation split of unique scenes which are used during this work is also provided 
+[here](https://github.com/ardaduz/deep-video-mvs/blob/master/dataset/scannet-export),
+one may replace the randomly generated ones with these two.
 
 ### Training / Testing
 There are no command line arguments for the system.
-Instead, the parameters are controlled from the config.py.
+Instead, many general parameters are controlled from the config.py.
 Please adjust the folder locations (and/or other settings) inside the config.py.
 
+Additionally, several important training hyperparameters are controlled directly
+inside the training scripts in a [class](https://github.com/ardaduz/deep-video-mvs/blob/master/dvmvs/fusionnet/run-training.py#L18).
+
 #### Training:
-```
-cd deep-video-mvs/dvmvs/fusionnet
-python run-training.py
-```
+To train the networks from scratch, please refer to the detailed explanation
+of the procedure that we follow provided in the supplementary of the paper.
+In summary, we first train the pairnet independently and use some modules' weights
+to partially initialize our fusionnet. For fusionnet, we start by training the cell 
+and the decoder, which are randomly initialized, and then gradually unfreeze the 
+other modules. Finally, we finetune only the cell while warping the hidden states with
+the predictions instead of the groundtruth depths.
+* pairnet training script:
+    ```
+    cd deep-video-mvs/dvmvs/pairnet
+    python run-training.py
+    ```
+* fusionnet training script:
+    ```
+    cd deep-video-mvs/dvmvs/fusionnet
+    python run-training.py
+    ```
+    
 #### Testing:
 There are two types of test runs one can perform:
  
