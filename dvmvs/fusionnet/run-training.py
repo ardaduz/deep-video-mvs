@@ -12,7 +12,7 @@ from dvmvs.dataset_loader import MVSDataset
 from dvmvs.fusionnet.model import *
 from dvmvs.losses import LossMeter, update_losses
 from dvmvs.train import train
-from dvmvs.utils import zip_code, print_number_of_trainable_parameters, calculate_cost_volume_by_warping, get_differentiable_square_depth_estimation
+from dvmvs.utils import zip_code, print_number_of_trainable_parameters, calculate_cost_volume_by_warping
 
 
 class TrainingHyperparameters:
@@ -148,7 +148,7 @@ def main():
                                  betas=(TrainingHyperparameters.momentum, TrainingHyperparameters.beta),
                                  weight_decay=TrainingHyperparameters.weight_decay)
     print_number_of_trainable_parameters(optimizer)
-    for epoch in range(TrainingHyperparameters.finetune_epochs, 2*TrainingHyperparameters.finetune_epochs):
+    for epoch in range(TrainingHyperparameters.finetune_epochs, 2 * TrainingHyperparameters.finetune_epochs):
         print("\n\nEPOCH:", epoch)
         train(train_loader=train_loader,
               val_loader=val_loader,
@@ -171,7 +171,7 @@ def main():
                                  betas=(TrainingHyperparameters.momentum, TrainingHyperparameters.beta),
                                  weight_decay=TrainingHyperparameters.weight_decay)
     print_number_of_trainable_parameters(optimizer)
-    for epoch in range(TrainingHyperparameters.finetune_epochs, Config.train_epochs):
+    for epoch in range(2 * TrainingHyperparameters.finetune_epochs, Config.train_epochs):
         print("\n\nEPOCH:", epoch)
         train(train_loader=train_loader,
               val_loader=val_loader,
