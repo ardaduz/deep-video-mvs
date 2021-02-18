@@ -81,24 +81,19 @@ def main():
         input_folder / "rgbd_dataset_freiburg1_plant",
         input_folder / "rgbd_dataset_freiburg1_room",
         input_folder / "rgbd_dataset_freiburg1_teddy",
-        input_folder / "rgbd_dataset_freiburg1_xyz",
         input_folder / "rgbd_dataset_freiburg2_desk",
-        input_folder / "rgbd_dataset_freiburg2_metallic_sphere2",
-        input_folder / "rgbd_dataset_freiburg2_xyz",
+        input_folder / "rgbd_dataset_freiburg2_dishes",
+        input_folder / "rgbd_dataset_freiburg2_large_no_loop",
         input_folder / "rgbd_dataset_freiburg3_cabinet",
         input_folder / "rgbd_dataset_freiburg3_long_office_household",
         input_folder / "rgbd_dataset_freiburg3_nostructure_notexture_far",
         input_folder / "rgbd_dataset_freiburg3_nostructure_texture_far",
         input_folder / "rgbd_dataset_freiburg3_structure_notexture_far",
-        input_folder / "rgbd_dataset_freiburg3_structure_texture_far",
-        input_folder / "rgbd_dataset_freiburg3_teddy"]
+        input_folder / "rgbd_dataset_freiburg3_structure_texture_far"]
 
     pool = Pool(6)
     for finished_scene in pool.imap_unordered(partial(process_scene, output_folder=output_folder), input_directories):
         print("finished", finished_scene)
-
-    pool.join()
-    pool.close()
 
 
 if __name__ == '__main__':
