@@ -1,4 +1,3 @@
-# deep-video-mvs
 ## DeepVideoMVS: Multi-View Stereo on Video with Recurrent Spatio-Temporal Fusion
 ![](miscellaneous/teaser.png)
 
