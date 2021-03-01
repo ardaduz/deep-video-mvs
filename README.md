@@ -1,7 +1,7 @@
 # deep-video-mvs
 ### DeepVideoMVS: Multi-View Stereo on Video with Recurrent Spatio-Temporal Fusion
 
-#### Paper: [arXiv](https://arxiv.org/abs/2012.02177)
+#### Paper (Accepted to CVPR 2021): [arXiv](https://arxiv.org/abs/2012.02177)
 
 ![](miscellaneous/teaser.png)
 
