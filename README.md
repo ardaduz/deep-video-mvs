@@ -1,4 +1,4 @@
-## DeepVideoMVS: Multi-View Stereo on Video with Recurrent Spatio-Temporal Fusion
+### DeepVideoMVS: Multi-View Stereo on Video with Recurrent Spatio-Temporal Fusion
 ![](miscellaneous/teaser.png)
 
 ### Paper (Accepted to CVPR 2021): [arXiv](https://arxiv.org/abs/2012.02177)
