@@ -1,12 +1,9 @@
-# deep-video-mvs
 ### DeepVideoMVS: Multi-View Stereo on Video with Recurrent Spatio-Temporal Fusion
-
-#### Paper: [arXiv](https://arxiv.org/abs/2012.02177)
-
 ![](miscellaneous/teaser.png)
 
-### Introduction
-DeepVideoMVS is a learning-based online multi-view depth prediction approach on 
+### Paper (Accepted to CVPR 2021): [arXiv](https://arxiv.org/abs/2012.02177)
+
+***DeepVideoMVS*** is a learning-based online multi-view depth prediction approach on 
 posed video streams, where the scene geometry information computed in the previous 
 time steps is propagated to the current time step. The backbone of the approach is a 
 real-time capable, lightweight encoder-decoder that relies on cost volumes computed 
