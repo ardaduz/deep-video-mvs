@@ -1,5 +1,5 @@
 ### DeepVideoMVS: Multi-View Stereo on Video with Recurrent Spatio-Temporal Fusion
-![](miscellaneous/teaser.png)
+![](miscellaneous/teaser1.png)
 
 ### Paper (Accepted to CVPR 2021): [arXiv](https://arxiv.org/abs/2012.02177)
 
@@ -11,7 +11,7 @@ from pairs of images.  We extend it with a ConvLSTM cell at the bottleneck layer
 and a hidden state propagation scheme where we partially account for the viewpoint 
 changes between time steps.
 
-![](miscellaneous/architecture.png)
+![](miscellaneous/teaser2.png)
 
 This extension brings only a small overhead of computation time and memory consumption over the
 backbone, while improving the depth predictions significantly. The fusion network produces noticeably 
