@@ -4,7 +4,7 @@ from path import Path
 from dvmvs.keyframe_buffer import KeyframeBuffer, SimpleBuffer
 
 
-def simulate_keyframe_buffer(test_dataset_path, n_measurement_frames):
+def simulate_keyframe_buffer(test_dataset_path, output_folder, n_measurement_frames):
     test_dataset_path = Path(test_dataset_path)
     scene_folders = sorted(test_dataset_path.listdir())
 
@@ -48,10 +48,10 @@ def simulate_keyframe_buffer(test_dataset_path, n_measurement_frames):
         output_lines = np.array(output_lines)
 
         dataset_name = test_dataset_path.split("/")[-1]
-        np.savetxt('/media/ardaduz/T5/test/indices/keyframe+{}+{}+nmeas+{}'.format(dataset_name, scene, n_measurement_frames), output_lines, fmt='%s')
+        np.savetxt('{}/keyframe+{}+{}+nmeas+{}'.format(output_folder, dataset_name, scene, n_measurement_frames), output_lines, fmt='%s')
 
 
-def simulate_simple_buffer(test_dataset_path, n_skip, n_measurement_frames):
+def simulate_simple_buffer(test_dataset_path, output_folder, n_skip, n_measurement_frames):
     test_dataset_path = Path(test_dataset_path)
     scene_folders = sorted(test_dataset_path.listdir())
 
@@ -96,23 +96,21 @@ def simulate_simple_buffer(test_dataset_path, n_skip, n_measurement_frames):
 
         dataset_name = test_dataset_path.split("/")[-1]
         n_skip_str = str(n_skip)
-        np.savetxt('/media/ardaduz/T5/test/indices/simple{}+{}+{}+nmeas+{}'.format(n_skip_str, dataset_name, scene, n_measurement_frames), output_lines,
+        np.savetxt('{}/simple{}+{}+{}+nmeas+{}'.format(output_folder, n_skip_str, dataset_name, scene, n_measurement_frames), output_lines,
                    fmt='%s')
 
 
 def main():
-    # test_dataset_path = "/media/ardaduz/T5/test/scannet"
-    # test_dataset_path = "/media/ardaduz/T5/test/7scenes"
-    # test_dataset_path = "/media/ardaduz/T5/test/rgbdscenes"
-    # test_dataset_path = "/media/ardaduz/T5/test/tumrgbd"
-    # test_dataset_path = "/media/ardaduz/T5/test/iclnuim"
-    test_dataset_path = "/home/ardaduz/Workspace/git/deep-video-mvs/sample-data/hololens-dataset"
-    simulate_keyframe_buffer(test_dataset_path, n_measurement_frames=1)
-    simulate_keyframe_buffer(test_dataset_path, n_measurement_frames=2)
-    # simulate_simple_buffer(test_dataset_path, n_skip=10, n_measurement_frames=1)
-    # simulate_simple_buffer(test_dataset_path, n_skip=10, n_measurement_frames=2)
-    # simulate_simple_buffer(test_dataset_path, n_skip=20, n_measurement_frames=1)
-    # simulate_simple_buffer(test_dataset_path, n_skip=20, n_measurement_frames=2)
+    output_folder = "../sample-data/indices"
+    test_dataset_path = "../sample-data/hololens-dataset"
+    simulate_keyframe_buffer(test_dataset_path, output_folder, n_measurement_frames=1)
+    simulate_keyframe_buffer(test_dataset_path, output_folder, n_measurement_frames=2)
+
+    # for evaluation of simple selection (comment out the rest if only our keyframe selection method is desired)
+    simulate_simple_buffer(test_dataset_path, output_folder, n_skip=10, n_measurement_frames=1)
+    simulate_simple_buffer(test_dataset_path, output_folder, n_skip=10, n_measurement_frames=2)
+    simulate_simple_buffer(test_dataset_path, output_folder, n_skip=20, n_measurement_frames=1)
+    simulate_simple_buffer(test_dataset_path, output_folder, n_skip=20, n_measurement_frames=2)
 
 
 main()

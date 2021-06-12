@@ -39,8 +39,10 @@ class Config:
     # SET THESE: TESTING FOLDER LOCATIONS
     # for run-testing-online.py (evaluate a single scene, WITHOUT keyframe indices, online selection)
     test_online_scene_path = "/home/ardaduz/Workspace/git/deep-video-mvs/sample-data/hololens-dataset/000"
+
     # for run-testing.py (evaluate all available scenes, WITH pre-calculated keyframe indices)
     test_offline_data_path = "/home/ardaduz/Workspace/git/deep-video-mvs/sample-data"
+
     # below give a dataset name like tumrgbd, i.e. folder or None
     # if None, all datasets will be evaluated given that
     # their keyframe index files are in Config.test_offline_data_path/indices folder
