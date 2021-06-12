@@ -16,9 +16,6 @@ from dvmvs.utils import zip_code, print_number_of_trainable_parameters, calculat
 
 
 class TrainingHyperparameters:
-    Config.train_image_width = 256
-    Config.train_image_height = 256
-    Config.predict_two_way = False
     Config.train_subsequence_length = 8
     batch_size = 4
     learning_rate = 1e-4
