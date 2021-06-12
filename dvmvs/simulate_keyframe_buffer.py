@@ -105,11 +105,10 @@ def main():
     test_dataset_path = "../sample-data/hololens-dataset"
     simulate_keyframe_buffer(test_dataset_path, output_folder, n_measurement_frames=1)
     simulate_keyframe_buffer(test_dataset_path, output_folder, n_measurement_frames=2)
+    simulate_keyframe_buffer(test_dataset_path, output_folder, n_measurement_frames=3)
 
     # for evaluation of simple selection (comment out the rest if only our keyframe selection method is desired)
-    simulate_simple_buffer(test_dataset_path, output_folder, n_skip=10, n_measurement_frames=1)
     simulate_simple_buffer(test_dataset_path, output_folder, n_skip=10, n_measurement_frames=2)
-    simulate_simple_buffer(test_dataset_path, output_folder, n_skip=20, n_measurement_frames=1)
     simulate_simple_buffer(test_dataset_path, output_folder, n_skip=20, n_measurement_frames=2)
 
 
