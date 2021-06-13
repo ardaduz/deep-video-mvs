@@ -225,6 +225,7 @@ def sanity_check_train():
 
 frame_skip = 1
 is_train = False
+is_sanity_check = False
 if is_train:
     input_path = "/home/ardaduz/HDD/Downloads/ScanNet/scans"
     output_path = "/media/ardaduz/T5/train"
@@ -234,11 +235,12 @@ else:
 
 if __name__ == '__main__':
 
-    if is_train:
-        sanity_check_train()
-    else:
-        sanity_check_test()
-    exit(0)
+    if is_sanity_check:
+        if is_train:
+            sanity_check_train()
+        else:
+            sanity_check_test()
+        exit(0)
 
     sequence_names = sorted(os.listdir(input_path))
 
