@@ -1,9 +1,16 @@
-Modified inference codes for the existing methods that we compare our method with.
+### Four Baseline Methods Compared with DeepVideoMVS
 
-- [DELTAS](https://github.com/magicleap/DELTAS)
+Modified inference codes for four existing methods that we compare our method with.
 
-- [GP-MVS](https://github.com/AaltoML/GP-MVS)
+We also provide finetuned (by us, on our ScanNet training split) weights for GP-MVS, MVDepthNet and DPSNet. 
+DELTAS is originally trained on ScanNet, so we do not finetune it.
 
-- [MVDepthNet](https://github.com/HKUST-Aerial-Robotics/MVDepthNet)
+Original weights and the full code for these models can be found in their respective repositories.
 
-- [DPSNet](https://github.com/sunghoonim/DPSNet)
+- **[DELTAS - https://github.com/magicleap/DELTAS](https://github.com/magicleap/DELTAS)**
+
+- **[GP-MVS - https://github.com/AaltoML/GP-MVS](https://github.com/AaltoML/GP-MVS)**
+
+- **[MVDepthNet - https://github.com/HKUST-Aerial-Robotics/MVDepthNet](https://github.com/HKUST-Aerial-Robotics/MVDepthNet)**
+
+- **[DPSNet - https://github.com/sunghoonim/DPSNet](https://github.com/sunghoonim/DPSNet)**

@@ -1,10 +1,14 @@
-### *DeepVideoMVS*: Multi-View Stereo on Video with Recurrent Spatio-Temporal Fusion
+## *DeepVideoMVS*: Multi-View Stereo on Video with Recurrent Spatio-Temporal Fusion
+### Paper (CVPR 2021): [arXiv](https://arxiv.org/abs/2012.02177)
+### Presentation: *Coming Soon*
 
----
+<br />
 
-![](miscellaneous/teaser1.png)
+https://user-images.githubusercontent.com/46934354/122127322-4c148800-ce33-11eb-982a-4ccf71a7c54a.mp4
 
-### Paper (Accepted to CVPR 2021): [arXiv](https://arxiv.org/abs/2012.02177)
+https://user-images.githubusercontent.com/46934354/122122414-0fde2900-ce2d-11eb-9276-16d362438249.mp4
+
+<br />
 
 ***DeepVideoMVS*** is a learning-based online multi-view depth prediction approach on 
 posed video streams, where the scene geometry information computed in the previous 
@@ -14,14 +18,19 @@ from pairs of images.  We extend it with a ConvLSTM cell at the bottleneck layer
 and a hidden state propagation scheme where we partially account for the viewpoint 
 changes between time steps.
 
-![](miscellaneous/teaser2.png)
-
 This extension brings only a small overhead of computation time and memory consumption over the
-backbone, while improving the depth predictions significantly. The fusion network produces noticeably 
-more consistent depth predictions for the planar surfaces throughout a sequence which gets reflected 
-as smooth reconstructions of such surfaces. This is demonstrated in the supplementary
-[video](miscellaneous/deep-video-mvs-supplementary-video.mp4).
+backbone, while improving the depth predictions significantly. As the result, DeepVideoMVS achieves
+**highly accurate depth maps** with **real-time performance** and **low memory consumption**. 
+It produces noticeably more consistent depth predictions than our backbone and the existing 
+methods throughout a sequence, which gets reflected as less noisy reconstructions.
 
+<br />
+
+![](miscellaneous/teaser.jpg)
+
+---
+### Citation
+---
 If you find this project useful for your research, please cite:
 ```
 @misc{düzçeker2020deepvideomvs,
@@ -35,9 +44,11 @@ If you find this project useful for your research, please cite:
 }
 ```
 
----
+<br />
 
+---
 ### Dependencies / Installation
+---
 ```
 conda create -n dvmvs-env
 conda activate dvmvs-env
@@ -62,9 +73,11 @@ git clone https://github.com/ardaduz/deep-video-mvs.git
 pip install -e deep-video-mvs
 ```
 
----
+<br />
 
+---
 ### Data Structure
+---
 The scripts for parsing the datasets are provided in the **`dataset`** folder.
 All of the scripts might not work straight ahead due to naming and foldering conventions while
 downloading the datasets, however they should help reduce the effort required. Exporting [ScanNet](http://www.scan-net.org/) .sens 
@@ -92,10 +105,11 @@ The training/validation split of unique scenes which are used during this work i
 [here](https://github.com/ardaduz/deep-video-mvs/blob/master/dataset/scannet-export),
 one may replace the randomly generated ones with these two.
 
+<br />
+
 ---
-
 ### Training and Testing:
-
+---
 * **The pre-trained weights are provided. They are placed 
 [here](https://github.com/ardaduz/deep-video-mvs/tree/master/dvmvs/fusionnet/weights) and automatically
 loaded during testing.**
@@ -104,7 +118,6 @@ loaded during testing.**
 Instead, many general parameters are controlled from the `config.py` within the class `Config`.**
 
 * **Please adjust the input and output folder locations (and/or other settings) inside the `config.py`.**
-
 
 ### Training:
 In addition to the general **`Config`**, very specific training hyperparameters 
@@ -129,7 +142,7 @@ the predictions instead of the groundtruth depths.
     cd deep-video-mvs/dvmvs/fusionnet
     python run-training.py
     ```
-    
+
 ### Testing:
 We provide two scripts for running the inference:
 
@@ -167,3 +180,16 @@ Errors contain 8 different metrics for each frame in order:
 predictions = numpy.load(prediction_filename)['arr_0']
 errors = numpy.load(error_filename)['arr_0']
 ```
+
+<br />
+
+---
+### Comparison with the Existing Methods:
+---
+In this work, our method is compared with [DELTAS](https://github.com/magicleap/DELTAS), 
+[GP-MVS](https://github.com/AaltoML/GP-MVS), [DPSNet](https://github.com/sunghoonim/DPSNet), 
+[MVDepthNet](https://github.com/HKUST-Aerial-Robotics/MVDepthNet) and [Neural RGBD](https://github.com/NVlabs/neuralrgbd).
+For ease of evaluation, we slightly modified the inference codes of the first four methods to make them 
+compatible with the data structure and the keyframe selection files. For Neural RGBD, in contrast, we adjusted 
+the data structure and used the original code. The modified inference codes (and the finetuned weights, if necessary)
+are provided in the **`dvmvs/baselines`** directory. Please refer to the paper for the comparison results.
