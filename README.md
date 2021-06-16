@@ -2,10 +2,6 @@
 ### Paper (CVPR 2021): [arXiv](https://arxiv.org/abs/2012.02177)
 ### Presentation: *Coming Soon*
 
-<br />
-
-https://user-images.githubusercontent.com/46934354/122127322-4c148800-ce33-11eb-982a-4ccf71a7c54a.mp4
-
 https://user-images.githubusercontent.com/46934354/122122414-0fde2900-ce2d-11eb-9276-16d362438249.mp4
 
 <br />
@@ -23,6 +19,10 @@ backbone, while improving the depth predictions significantly. As the result, De
 **highly accurate depth maps** with **real-time performance** and **low memory consumption**. 
 It produces noticeably more consistent depth predictions than our backbone and the existing 
 methods throughout a sequence, which gets reflected as less noisy reconstructions.
+
+<br />
+
+https://user-images.githubusercontent.com/46934354/122127322-4c148800-ce33-11eb-982a-4ccf71a7c54a.mp4
 
 <br />
 
