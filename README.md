@@ -33,14 +33,13 @@ https://user-images.githubusercontent.com/46934354/122127322-4c148800-ce33-11eb-
 ---
 If you find this project useful for your research, please cite:
 ```
-@misc{düzçeker2020deepvideomvs,
-      title={DeepVideoMVS: Multi-View Stereo on Video with Recurrent Spatio-Temporal Fusion}, 
-      author={Arda Düzçeker and Silvano Galliani and Christoph Vogel and 
-              Pablo Speciale and Mihai Dusmanu and Marc Pollefeys},
-      year={2020},
-      eprint={2012.02177},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV}
+@inproceedings{Duzceker_2021_CVPR,
+    author    = {Duzceker, Arda and Galliani, Silvano and Vogel, Christoph and Speciale, Pablo and Dusmanu, Mihai and Pollefeys, Marc},
+    title     = {DeepVideoMVS: Multi-View Stereo on Video With Recurrent Spatio-Temporal Fusion},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    month     = {June},
+    year      = {2021},
+    pages     = {15324-15333}
 }
 ```
 
