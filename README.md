@@ -1,7 +1,3 @@
-### Paper (CVPR 2021): [arXiv](https://arxiv.org/abs/2012.02177) - [CVF](https://openaccess.thecvf.com/content/CVPR2021/html/Duzceker_DeepVideoMVS_Multi-View_Stereo_on_Video_With_Recurrent_Spatio-Temporal_Fusion_CVPR_2021_paper.html)
-
-<br />
-
 <p align="center">
     <iframe width="832" 
             height="468"
@@ -15,8 +11,7 @@
 
 <br />
 
-<img src="https://github.com/ardaduz/deep-video-mvs/blob/master/miscellaneous/teaser.jpg" 
-     class="inline" 
+<img src="https://raw.githubusercontent.com/ardaduz/deep-video-mvs/master/miscellaneous/teaser.jpg"
      alt="DeepVideoMVS: Multi-View Stereo on Video with Recurrent Spatio-Temporal Fusion">
 
 ***DeepVideoMVS*** is a learning-based online multi-view depth prediction approach on 
@@ -51,7 +46,6 @@ methods throughout a sequence, which gets reflected as less noisy reconstruction
 
 <br />
 
----
 ### Citation
 ---
 If you find this project useful for your research, please cite:
@@ -69,7 +63,6 @@ If you find this project useful for your research, please cite:
 
 <br />
 
----
 ### Dependencies / Installation
 ---
 ```
@@ -98,7 +91,6 @@ pip install -e deep-video-mvs
 
 <br />
 
----
 ### Data Structure
 ---
 The scripts for parsing the datasets are provided in the **`dataset`** folder.
@@ -130,7 +122,6 @@ one may replace the randomly generated ones with these two.
 
 <br />
 
----
 ### Training and Testing:
 ---
 * **The pre-trained weights are provided. They are placed 
@@ -206,7 +197,6 @@ errors = numpy.load(error_filename)['arr_0']
 
 <br />
 
----
 ### Comparison with the Existing Methods:
 ---
 In this work, our method is compared with [DELTAS](https://github.com/magicleap/DELTAS), 
