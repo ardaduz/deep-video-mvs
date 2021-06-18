@@ -22,11 +22,11 @@ methods throughout a sequence, which gets reflected as less noisy reconstruction
 
 <br />
 
-<video width="1600" height="900" controls>
+<video width="800" height="450" controls>
     <source type="video/mp4" src="https://user-images.githubusercontent.com/46934354/122122414-0fde2900-ce2d-11eb-9276-16d362438249.mp4">
 </video>
 
-<video width="1600" height="900" controls>
+<video width="800" height="450" controls>
     <source type="video/mp4" src="https://user-images.githubusercontent.com/46934354/122127322-4c148800-ce33-11eb-982a-4ccf71a7c54a.mp4">
 </video>
 
