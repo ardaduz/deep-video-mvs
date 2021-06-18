@@ -4,7 +4,7 @@
 
 <br />
 
-![](miscellaneous/teaser.jpg)
+![](https://github.com/ardaduz/deep-video-mvs/blob/master/miscellaneous/teaser.jpg)
 
 ***DeepVideoMVS*** is a learning-based online multi-view depth prediction approach on 
 posed video streams, where the scene geometry information computed in the previous 
@@ -22,9 +22,13 @@ methods throughout a sequence, which gets reflected as less noisy reconstruction
 
 <br />
 
-https://user-images.githubusercontent.com/46934354/122122414-0fde2900-ce2d-11eb-9276-16d362438249.mp4
+<video width="1600" height="900" controls>
+    <source type="video/mp4" src="https://user-images.githubusercontent.com/46934354/122122414-0fde2900-ce2d-11eb-9276-16d362438249.mp4">
+</video>
 
-https://user-images.githubusercontent.com/46934354/122127322-4c148800-ce33-11eb-982a-4ccf71a7c54a.mp4
+<video width="1600" height="900" controls>
+    <source type="video/mp4" src="https://user-images.githubusercontent.com/46934354/122127322-4c148800-ce33-11eb-982a-4ccf71a7c54a.mp4">
+</video>
 
 <br />
 
