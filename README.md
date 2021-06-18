@@ -1,11 +1,13 @@
 ## *DeepVideoMVS*: Multi-View Stereo on Video with Recurrent Spatio-Temporal Fusion
 ### Paper (CVPR 2021): [arXiv](https://arxiv.org/abs/2012.02177) - [CVF](https://openaccess.thecvf.com/content/CVPR2021/html/Duzceker_DeepVideoMVS_Multi-View_Stereo_on_Video_With_Recurrent_Spatio-Temporal_Fusion_CVPR_2021_paper.html)
 
+<br />
+
 <p align="center">
     <iframe width="832" 
             height="468"
             src="https://www.youtube.com/embed/ikpotjxwcp4" 
-            title="YouTube video player" 
+            title="DeepVideoMVS: Multi-View Stereo on Video with Recurrent Spatio-Temporal Fusion" 
             frameborder="0" 
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
             allowfullscreen>
@@ -14,7 +16,9 @@
 
 <br />
 
-<img src="https://github.com/ardaduz/deep-video-mvs/blob/master/miscellaneous/teaser.jpg" class="img-responsive" alt=""> </div>
+<img src="https://github.com/ardaduz/deep-video-mvs/blob/master/miscellaneous/teaser.jpg" 
+     class="inline" 
+     alt="DeepVideoMVS: Multi-View Stereo on Video with Recurrent Spatio-Temporal Fusion">
 
 ***DeepVideoMVS*** is a learning-based online multi-view depth prediction approach on 
 posed video streams, where the scene geometry information computed in the previous 
@@ -32,16 +36,21 @@ methods throughout a sequence, which gets reflected as less noisy reconstruction
 
 <br />
 
-<video width="800" height="450" controls>
-    <source type="video/mp4" src="https://user-images.githubusercontent.com/46934354/122122414-0fde2900-ce2d-11eb-9276-16d362438249.mp4">
-</video>
-
-<video width="800" height="450" controls>
-    <source type="video/mp4" src="https://user-images.githubusercontent.com/46934354/122127322-4c148800-ce33-11eb-982a-4ccf71a7c54a.mp4">
-</video>
+<p align="center">
+    <video width="832" height="468" controls loop autoplay>
+        <source type="video/mp4" src="https://user-images.githubusercontent.com/46934354/122122414-0fde2900-ce2d-11eb-9276-16d362438249.mp4">
+    </video>
+</p>
 
 <br />
 
+<p align="center">
+    <video width="832" height="468" controls loop autoplay>
+        <source type="video/mp4" src="https://user-images.githubusercontent.com/46934354/122127322-4c148800-ce33-11eb-982a-4ccf71a7c54a.mp4">
+    </video>
+</p>
+
+<br />
 
 ---
 ### Citation
