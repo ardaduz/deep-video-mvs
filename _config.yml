@@ -1,1 +1,4 @@
 theme: jekyll-theme-cayman
+title: "DeepVideoMVS: Multi-View Stereo on Video<br />with Recurrent Spatio-Temporal Fusion"
+description: "<br />CVPR 2021<br /><br />Arda Düzçeker, Silvano Galliani, Christoph Vogel, Pablo Speciale, Mihai Dusmanu, Marc Pollefeys"
+markdown: kramdown
