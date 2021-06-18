@@ -1,10 +1,10 @@
 ## *DeepVideoMVS*: Multi-View Stereo on Video with Recurrent Spatio-Temporal Fusion
-### Paper (CVPR 2021): [arXiv](https://arxiv.org/abs/2012.02177)
-### Presentation: *Coming Soon*
-
-https://user-images.githubusercontent.com/46934354/122122414-0fde2900-ce2d-11eb-9276-16d362438249.mp4
+### Paper (CVPR 2021): [arXiv](https://arxiv.org/abs/2012.02177) - [CVF](https://openaccess.thecvf.com/content/CVPR2021/html/Duzceker_DeepVideoMVS_Multi-View_Stereo_on_Video_With_Recurrent_Spatio-Temporal_Fusion_CVPR_2021_paper.html)
+### Presentation (5 min.): [YouTube](https://www.youtube.com/watch?v=ikpotjxwcp4)
 
 <br />
+
+![](miscellaneous/teaser.jpg)
 
 ***DeepVideoMVS*** is a learning-based online multi-view depth prediction approach on 
 posed video streams, where the scene geometry information computed in the previous 
@@ -22,11 +22,12 @@ methods throughout a sequence, which gets reflected as less noisy reconstruction
 
 <br />
 
+https://user-images.githubusercontent.com/46934354/122122414-0fde2900-ce2d-11eb-9276-16d362438249.mp4
+
 https://user-images.githubusercontent.com/46934354/122127322-4c148800-ce33-11eb-982a-4ccf71a7c54a.mp4
 
 <br />
 
-![](miscellaneous/teaser.jpg)
 
 ---
 ### Citation
