@@ -35,7 +35,8 @@ https://user-images.githubusercontent.com/46934354/122127322-4c148800-ce33-11eb-
 If you find this project useful for your research, please cite:
 ```
 @inproceedings{Duzceker_2021_CVPR,
-    author    = {Duzceker, Arda and Galliani, Silvano and Vogel, Christoph and Speciale, Pablo and Dusmanu, Mihai and Pollefeys, Marc},
+    author    = {Duzceker, Arda and Galliani, Silvano and Vogel, Christoph and 
+                 Speciale, Pablo and Dusmanu, Mihai and Pollefeys, Marc},
     title     = {DeepVideoMVS: Multi-View Stereo on Video With Recurrent Spatio-Temporal Fusion},
     booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
     month     = {June},
