@@ -194,3 +194,27 @@ For ease of evaluation, we slightly modified the inference codes of the first fo
 compatible with the data structure and the keyframe selection files. For Neural RGBD, in contrast, we adjusted 
 the data structure and used the original code. The modified inference codes (and the finetuned weights, if necessary)
 are provided in the **`dvmvs/baselines`** directory. Please refer to the paper for the comparison results.
+
+<br />
+
+---
+### TSDF Reconstructions:
+---
+TSDF reconstructions demonstrated in the paper and in the videos are acquired with the implementation from 
+https://github.com/andyzeng/tsdf-fusion-python. A modified version of this code is provided as
+**`sample-data/run-tsdf-reconstruction.py`**. Same with the original implementation, additional packages are 
+required to run the script, and can be installed to the existing environment with:
+```
+conda activate dvmvs-env
+conda install -c conda-forge numba scikit-image pycuda
+```
+We strongly recommend CUDA Toolkit (nvcc is required) and pycuda installation to get reasonable runtimes.
+
+Default arguments for **`sample-data/run-tsdf-reconstruction.py`** are readily set. 
+In addition to the input/output locations, the reconstruction resolution (`--voxel_size`) and the maximum
+depth value in a depth map to be backprojected and fused (`--max_depth`) can be controlled. 
+There are three additional flags (`--use_groundtruth_to_anchor`, `--save_progressive`, `--save_groundtruth`), 
+please refer to --help for their functionalities.
+
+For convenience, example predictions from the sample scene are also provided in the **`sample-data/predictions`** folder. 
+Finally, a couple of low resolution 3D reconstruction results are given in the **`sample-data/reconstructions`** folder.
