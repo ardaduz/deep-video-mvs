@@ -214,7 +214,7 @@ Default arguments for **`sample-data/run-tsdf-reconstruction.py`** are readily s
 In addition to the input/output locations, the reconstruction resolution (`--voxel_size`) and the maximum
 depth value in a depth map to be backprojected and fused (`--max_depth`) can be controlled. 
 There are three additional flags (`--use_groundtruth_to_anchor`, `--save_progressive`, `--save_groundtruth`), 
-please refer to --help for their functionalities.
+please refer to the script or use the `--help` flag for their functionalities.
 
 For convenience, example predictions from the sample scene are also provided in the **`sample-data/predictions`** folder. 
 Finally, a couple of low resolution 3D reconstruction results are given in the **`sample-data/reconstructions`** folder.
