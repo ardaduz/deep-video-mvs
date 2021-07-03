@@ -13,10 +13,10 @@ from dvmvs.utils import cost_volume_fusion, save_results, visualize_predictions,
 
 def predict():
     dataset_name = Config.test_online_scene_path.split("/")[-2]
-    system_name = "keyframe_{}_{}_{}_dvmvs_fusionnet_online".format(dataset_name,
-                                                                    Config.test_image_width,
-                                                                    Config.test_image_height,
-                                                                    Config.test_n_measurement_frames)
+    system_name = "keyframe_{}_{}_{}_{}_dvmvs_fusionnet_online".format(dataset_name,
+                                                                       Config.test_image_width,
+                                                                       Config.test_image_height,
+                                                                       Config.test_n_measurement_frames)
 
     print("Predicting with System:", system_name)
     print("# of Measurement Frames:", Config.test_n_measurement_frames)
