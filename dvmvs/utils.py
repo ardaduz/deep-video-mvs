@@ -328,21 +328,27 @@ def print_number_of_trainable_parameters(optimizer):
 
 # TESTING UTILS
 def save_results(predictions, groundtruths, system_name, scene_name, save_folder, max_depth=np.inf):
-    errors = []
-    for i, prediction in enumerate(predictions):
-        errors.append(compute_errors(groundtruths[i], prediction, max_depth))
+    if groundtruths is not None:
+        errors = []
+        for i, prediction in enumerate(predictions):
+            errors.append(compute_errors(groundtruths[i], prediction, max_depth))
 
-    error_names = ['abs_error', 'abs_relative_error', 'abs_inverse_error',
-                   'squared_relative_error', 'rmse', 'ratio_125', 'ratio_125_2', 'ratio_125_3']
+        error_names = ['abs_error', 'abs_relative_error', 'abs_inverse_error',
+                       'squared_relative_error', 'rmse', 'ratio_125', 'ratio_125_2', 'ratio_125_3']
 
-    errors = np.array(errors)
+        errors = np.array(errors)
+        mean_errors = np.nanmean(errors, 0)
+        print("Metrics of {} for scene {}:".format(system_name, scene_name))
+        print("{:>25}, {:>25}, {:>25}, {:>25}, {:>25}, {:>25}, {:>25}, {:>25}".format(*error_names))
+        print("{:25.4f}, {:25.4f}, {:25.4f}, {:25.4f}, {:25.4f}, {:25.4f}, {:25.4f}, {:25.4f}".format(*mean_errors))
+
+        np.savez_compressed(Path(save_folder) / system_name + "_errors_" + scene_name, errors)
+
     predictions = np.array(predictions)
-    mean_errors = np.nanmean(errors, 0)
-    print("Metrics of {} for scene {}:".format(system_name, scene_name))
-    print("{:>25}, {:>25}, {:>25}, {:>25}, {:>25}, {:>25}, {:>25}, {:>25}".format(*error_names))
-    print("{:25.4f}, {:25.4f}, {:25.4f}, {:25.4f}, {:25.4f}, {:25.4f}, {:25.4f}, {:25.4f}".format(*mean_errors))
+    np.savez_compressed(Path(save_folder) / system_name + "_predictions_" + scene_name, predictions)
 
-    np.savez_compressed(Path(save_folder) / system_name + "_errors_" + scene_name, errors)
+
+def save_predictions(predictions, system_name, scene_name, save_folder):
     np.savez_compressed(Path(save_folder) / system_name + "_predictions_" + scene_name, predictions)
 
 

@@ -1,3 +1,5 @@
+import shutil
+
 import cv2
 import numpy as np
 import torch
@@ -12,12 +14,12 @@ from dvmvs.utils import cost_volume_fusion, save_results, visualize_predictions,
     get_warp_grid_for_cost_volume_calculation
 
 
-def predict():
+def predict(evaluate):
     dataset_name = Config.test_online_scene_path.split("/")[-2]
     system_name = "keyframe_{}_{}_{}_{}_dvmvs_fusionnet_online".format(dataset_name,
-                                                                    Config.test_image_width,
-                                                                    Config.test_image_height,
-                                                                    Config.test_n_measurement_frames)
+                                                                       Config.test_image_width,
+                                                                       Config.test_image_height,
+                                                                       Config.test_n_measurement_frames)
 
     print("Predicting with System:", system_name)
     print("# of Measurement Frames:", Config.test_n_measurement_frames)
@@ -81,7 +83,6 @@ def predict():
     K = np.loadtxt(scene_folder / 'K.txt').astype(np.float32)
     poses = np.fromfile(scene_folder / "poses.txt", dtype=float, sep="\n ").reshape((-1, 4, 4))
     image_filenames = sorted((scene_folder / 'images').files("*.png"))
-    depth_filenames = sorted((scene_folder / 'depth').files("*.png"))
 
     inference_timer = InferenceTimer()
 
@@ -90,12 +91,19 @@ def predict():
     previous_pose = None
 
     predictions = []
-    reference_depths = []
+
+    if evaluate:
+        reference_depths = []
+        depth_filenames = sorted((scene_folder / 'depth').files("*.png"))
+    else:
+        # if None the system will not be evaluated and errors will not be calculated
+        reference_depths = None
+        depth_filenames = None
+
     with torch.no_grad():
         for i in tqdm(range(0, len(poses))):
             reference_pose = poses[i]
             reference_image = load_image(image_filenames[i])
-            reference_depth = cv2.imread(depth_filenames[i], -1).astype(float) / 1000.0
 
             # POLL THE KEYFRAME BUFFER
             response = keyframe_buffer.try_new_keyframe(reference_pose, reference_image)
@@ -119,7 +127,12 @@ def predict():
                                                      scale_rgb=scale_rgb,
                                                      mean_rgb=mean_rgb,
                                                      std_rgb=std_rgb)
-            reference_depth = preprocessor.apply_depth(reference_depth)
+
+            if reference_depths is not None:
+                reference_depth = cv2.imread(depth_filenames[i], -1).astype(float) / 1000.0
+                reference_depth = preprocessor.apply_depth(reference_depth)
+                reference_depths.append(reference_depth)
+
             reference_image_torch = torch.from_numpy(np.transpose(reference_image, (2, 0, 1))).float().to(device).unsqueeze(0)
             reference_pose_torch = torch.from_numpy(reference_pose).float().to(device).unsqueeze(0)
 
@@ -200,7 +213,6 @@ def predict():
             inference_timer.record_end_time_and_elapsed_time()
 
             prediction = prediction.cpu().numpy().squeeze()
-            reference_depths.append(reference_depth)
             predictions.append(prediction)
 
             if Config.test_visualize:
@@ -222,4 +234,4 @@ def predict():
 
 
 if __name__ == '__main__':
-    predict()
+    predict(evaluate=True)
